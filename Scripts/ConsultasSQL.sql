@@ -44,3 +44,25 @@ select
 	sum(qtd_vendas) as "Total de Vendas em Milhões"
 from phones
 ---------------------------------------------
+select
+	nome_fabricante,
+	max(qtd_vendas) as "Vendas em Milhões"
+from phones
+group by nome_fabricante 
+order by "Vendas em Milhões" desc
+---------------------------------------------
+select
+	nome_fabricante,
+	min(qtd_vendas) as "Vendas em Milhões"
+from phones
+group by nome_fabricante 
+order by "Vendas em Milhões"
+---------------------------------------------
+select 
+	ano_lancamento,
+	count(*)
+from phones
+group by ano_lancamento
+order by ano_lancamento 
+---------------------------------------------
+
