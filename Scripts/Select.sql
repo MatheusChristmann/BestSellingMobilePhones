@@ -1,5 +1,5 @@
 /* SCRIPS DE CONSULTA DOS DADOS */
-----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 
 /* Exploração de Dados */
 
@@ -20,7 +20,8 @@ SELECT distinct
 	nome_fabricante
 FROM phones;
 
-----------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+
 /* Análise de Dados */
 
 select 	
@@ -34,6 +35,15 @@ select
 from phones
 group by ano_lancamento
 order by ano_lancamento 
+---------------------------------------------
+select 	
+	nome_fabricante,
+	modelo,
+	qtd_vendas 
+from phones
+where ano_lancamento  = 2019
+order by qtd_vendas desc
+
 ---------------------------------------------
 select
 	Nome_fabricante,
@@ -76,3 +86,5 @@ from phones
 where nome_fabricante like 'Samsung'
 and modelo like '%Galaxy S%'
 order by qtd_vendas desc 
+
+

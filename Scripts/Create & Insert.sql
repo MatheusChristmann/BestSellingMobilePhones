@@ -1,8 +1,8 @@
-/* CRIA√á√ÉO DA BASE */
+/* CRIA«√O DA BASE */
 
 create database MobilePhones;
 ----------------------------------------------------------------------------
-/* CRIA√á√ÉO DA TABELA */
+/* CRIA«√O DA TABELA */
 
 create table phones(
 	id serial constraint phones_pk primary key,
@@ -13,7 +13,7 @@ create table phones(
 );
 
 ----------------------------------------------------------------------------
-/* INSER√á√ÉO DOS DADOS */
+/* INSER«√O DOS DADOS */
 
 insert into phones(Nome_Fabricante, Modelo,Ano_Lancamento, Qtd_Vendas) values
 ('Nokia','1100',2003,250),
