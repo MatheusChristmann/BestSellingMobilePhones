@@ -1,41 +1,50 @@
+/* SCRIPS DE CONSULTA DOS DADOS */
+----------------------------------------------------------------------------
+
+/* Exploração de Dados */
+
 select 	
 	count(*) as "Quantidade Registros"
-from phones
+from phones;
 ---------------------------------------------
 select 	
 	*
 from phones
-limit 10
+limit 10;
 ---------------------------------------------
-SELECT column_name, data_type FROM information_schema."columns" WHERE table_name = 'phones';
+SELECT column_name, data_type 
+FROM information_schema."columns" 
+WHERE table_name = 'phones';
 ---------------------------------------------
 SELECT distinct
 	nome_fabricante
-FROM phones
----------------------------------------------
-select
-Nome_fabricante,
-	count(Nome_fabricante)
-from phones
-group by Nome_Fabricante
-order by count(Nome_fabricante) desc
----------------------------------------------
+FROM phones;
+
+----------------------------------------------------------------------------
+/* Análise de Dados */
+
 select 	
 	min(Ano_lancamento),
 	max(Ano_lancamento)
 from phones
 ---------------------------------------------
+select 
+	ano_lancamento,
+	count(*) as "qtd lançados"
+from phones
+group by ano_lancamento
+order by ano_lancamento 
+---------------------------------------------
 select
-	Nome_Fabricante,
-	sum(Qtd_vendas) as "Total_Vendas"
-from phones 
+	Nome_fabricante,
+	count(Nome_fabricante) as "qtd registros"
+from phones
 group by Nome_Fabricante
-order by "Total_Vendas" desc 
-limit 10
+order by count(Nome_fabricante) desc
 ---------------------------------------------
 select 	
 	Ano_lancamento,
-	sum(qtd_vendas)
+	sum(qtd_vendas) as "total vendas por ano"
 from phones
 group by Ano_lancamento
 order by Ano_lancamento
@@ -44,25 +53,26 @@ select
 	sum(qtd_vendas) as "Total de Vendas em Milhões"
 from phones
 ---------------------------------------------
-select
+select	
 	nome_fabricante,
-	max(qtd_vendas) as "Vendas em Milhões"
+	modelo
 from phones
-group by nome_fabricante 
-order by "Vendas em Milhões" desc
+order by qtd_vendas desc
+limit 10
 ---------------------------------------------
 select
-	nome_fabricante,
-	min(qtd_vendas) as "Vendas em Milhões"
-from phones
-group by nome_fabricante 
-order by "Vendas em Milhões"
----------------------------------------------
+	Nome_Fabricante,
+	sum(Qtd_vendas) as "total_vendas"
+from phones 
+group by Nome_Fabricante
+order by "total_vendas" desc 
+limit 10 
+--------------------------------------------
 select 
+	modelo,
 	ano_lancamento,
-	count(*)
+	qtd_vendas 
 from phones
-group by ano_lancamento
-order by ano_lancamento 
----------------------------------------------
-
+where nome_fabricante like 'Samsung'
+and modelo like '%Galaxy S%'
+order by qtd_vendas desc 
