@@ -1,2 +1,5 @@
-# BestSellingMobilePhones
-Exploração e Análise de Dados dos Smartphones mais Vendidos no Mundo
+<h1 align="center"> 
+  <a>BestSellingMobilePhones - EDA and Analysis</a> 
+</h1>
+
+
